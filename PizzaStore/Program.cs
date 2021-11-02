@@ -20,9 +20,9 @@ app.UseSwaggerUI(c =>
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/Pizza", async(PizzaDb db) => await db.Pizzas.ToListAsync());
+app.MapGet("/pizza", async(PizzaDb db) => await db.Pizzas.ToListAsync());
 
-app.MapPost("/Pizza", async(PizzaDb db, Pizza pizza) => {
+app.MapPost("/pizza", async(PizzaDb db, Pizza pizza) => {
     await db.Pizzas.AddAsync(pizza);
     await db.SaveChangesAsync();
     return Results.Created($"/pizza/{pizza.Id}", pizza);
@@ -38,7 +38,7 @@ app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
   return Results.NoContent();
 });
 
-app.MapDelete("/pizzas/{id}", async (PizzaDb db, int id) =>
+app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) =>
 {
   var todo = await db.Pizzas.FindAsync(id);
   if (todo is null)
