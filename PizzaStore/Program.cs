@@ -33,7 +33,7 @@ app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
   var pizzaItem = await db.Pizzas.FindAsync(id);
   if (pizzaItem is null) return Results.NotFound();
   pizzaItem.Name = updatePizza.Name;
-  pizzaItem.Description = updatePizza.Name;
+  pizzaItem.Description = updatePizza.Description;
   await db.SaveChangesAsync();
   return Results.NoContent();
 });
