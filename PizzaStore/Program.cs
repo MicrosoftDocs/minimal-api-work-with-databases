@@ -11,12 +11,32 @@ builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pizzas API", Description = "Pizza pizza", Version = "v1" });
 });
+// 1) define a unique string
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// 2) define allowed domains, in this case "http://example.com" and "*" = all
+//    domains, for testing purposes only.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+      builder =>
+      {
+          builder.WithOrigins(
+            "http://example.com", "*");
+      });
+});
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
   c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pizza API V1");
 });
+
+
+
+// 3) use the capability
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapGet("/", () => "Hello World!");
 
