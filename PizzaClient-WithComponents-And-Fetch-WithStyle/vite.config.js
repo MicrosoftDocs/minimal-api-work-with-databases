@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/pizza': {
-        target: 'http://localhost:5009',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
         ws: true,
