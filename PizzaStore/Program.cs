@@ -20,15 +20,16 @@ app.UseSwaggerUI(c =>
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/pizza", async(PizzaDb db) => await db.Pizzas.ToListAsync());
+app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
 
-app.MapPost("/pizza", async(PizzaDb db, Pizza pizza) => {
-    await db.Pizzas.AddAsync(pizza);
-    await db.SaveChangesAsync();
-    return Results.Created($"/pizza/{pizza.Id}", pizza);
+app.MapPost("/pizzas", async (PizzaDb db, Pizza pizza) =>
+{
+  await db.Pizzas.AddAsync(pizza);
+  await db.SaveChangesAsync();
+  return Results.Created($"/pizza/{pizza.Id}", pizza);
 });
 
-app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
+app.MapPut("/pizzas/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
 {
   var pizzaItem = await db.Pizzas.FindAsync(id);
   if (pizzaItem is null) return Results.NotFound();
@@ -38,7 +39,7 @@ app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
   return Results.NoContent();
 });
 
-app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) =>
+app.MapDelete("/pizzas/{id}", async (PizzaDb db, int id) =>
 {
   var todo = await db.Pizzas.FindAsync(id);
   if (todo is null)
