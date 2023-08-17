@@ -6,7 +6,7 @@ namespace PizzaStore.Data;
 public class PizzaDb : DbContext
 {
     public PizzaDb(DbContextOptions options) : base(options) { }
-    public DbSet<Pizza> Pizzas { get; set; }
+    public DbSet<Pizza> Pizzas { get; set; } = null!;
 
     protected override void OnModelCreating (ModelBuilder modelBuilder)
     {
