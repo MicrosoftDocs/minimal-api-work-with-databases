@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "mockserver": "npx json-server --watch db.json --port 5000",
+    "mockserver": "npx json-server --watch db.json --port 5100",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

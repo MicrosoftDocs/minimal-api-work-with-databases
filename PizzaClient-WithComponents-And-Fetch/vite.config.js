@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,  // Client port
     proxy: {
       '/pizza': {
-        target: 'http://127.0.0.1:5000', // Mock server port
+        target: 'http://localhost:5100', // API server 
         changeOrigin: true,
         secure: false,
         ws: true,
