@@ -1,3 +1,10 @@
+# Create web apps and services with ASP.NET Core, minimal API, and .NET
+
+.NET is a free, cross-platform, open-source developer platform for building many different types of applications. With minimal API, you can create an API in just four lines of code, while using the latest features of .NET.
+
+## Use repo with training module
+
+This repository supports the [Create a full stack application by using React and minimal API for ASP.NET Core](https://learn.microsoft.com/training/modules/build-web-api-minimal-spa/) training module of the [Create web apps and services with ASP.NET Core, minimal API, and .NET](https://learn.microsoft.com/en-us/training/paths/aspnet-core-minimal-api/) path.
 
 # Contributing
 
